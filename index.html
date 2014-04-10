@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>BOLETOS ADO</title>
+<link href="jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<script>
+var costoBol=0,result=0;
+var opcion;
+function costoBoleto(){
+costoBol=parseInt(document.getElementById("txtCosto").value);
+opcion=parseInt(document.getElementById("txtOpcion").value);
+switch(opcion)
+ {
+	case 1:
+	case 2:
+	case 3:
+	result=costoBol/2;
+	document.getElementById("txtResul").value=result;
+	break;
+	
+	case 4: 
+	result=costoBol*.25;
+	result=costoBol-result;
+	document.getElementById("txtResul").value=result;
+	break;
+	default: alert("No existe la opción");
+	document.getElementById("txtResul").value="";		
+ }
+}
+
+
+</script>
+<script src="phonegap.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>ADO</h1>
+	</div>
+	<div data-role="content">	
+		
+        <table border="0">
+                <tr>
+        <td colspan="2" >
+        <center><img src="images/logo_ado.jpg"></center>
+        </td>  
+        </tr>
+        <tr>
+        <td><label for="textinput">Introduzca el valor del boleto:</label></td>
+        <td> <input type="text" name="txtCosto" id="txtCosto" value=""  /></td>
+        </tr>
+        <tr>
+        <td colspan="2" >
+        <ul>
+          <li>1.Estudiante </li>
+          <li>2.Niño </li>
+          <li>3.Adulto Mayor </li>
+          <li>4.Profesor </li>
+        </ul>
+        </td>  
+        </tr>
+       <tr>
+        <td><label for="textinput">Seleccione la opción deseada:</label></td>
+        <td> <input type="text" name="txtOpcion" id="txtOpcion" value=""  /></td>
+        </tr>                
+        
+         <tr>
+        <td><label for="textinput">Costo total del boleto:</label></td>
+        <td> <input type="text" name="txtResul" id="txtResul" value="" disabled="disabled"  />
+        </td>
+        </tr> 
+        <tr>
+        <td colspan="2" >
+       <button onClick="costoBoleto()" >CALCULAR</button>
+        </td>  
+        </tr>                     
+        </table>
+	</div>
+	<div data-role="footer">
+		<h4>Autor: Lic María del Carmen Luna Georgana</h4>
+	</div>
+</div>
+
+
+</body>
+</html>
